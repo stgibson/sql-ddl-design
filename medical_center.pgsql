@@ -73,4 +73,8 @@ INSERT INTO diagnoses (visit_id, disease_id) VALUES
 
 -- gets the name of the medical center, doctor, patient, and disease for 1
 -- diagnosis for 1 visit
-SELECT mc.name AS medical_center, doc.name AS doctor, p.name AS patient, dis.name AS disease FROM medical_center mc JOIN doctors doc ON mc.id = doc.medical_center_id JOIN visits v ON doc.id = v.doctor_id JOIN patients p ON v.patient_id = p.id JOIN diagnoses dia ON v.id = dia.visit_id JOIN diseases dis ON dia.disease_id = dis.id;
+SELECT mc.name AS medical_center, doc.name AS doctor, p.name AS patient,
+  dis.name AS disease FROM medical_center mc JOIN doctors doc ON
+  mc.id = doc.medical_center_id JOIN visits v ON doc.id = v.doctor_id JOIN
+  patients p ON v.patient_id = p.id JOIN diagnoses dia ON v.id = dia.visit_id
+  JOIN diseases dis ON dia.disease_id = dis.id;
